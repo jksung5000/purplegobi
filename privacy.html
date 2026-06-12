@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lingrain 개인정보처리방침</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #0f766e;
+    --bg: #fdfcfa;
+    --line: #e6e2dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 96px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 40px; }
+  h2 { font-size: 20px; margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f3f1ed; }
+  ul { padding-left: 22px; }
+  .note { background: #f3f1ed; border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>개인정보처리방침</h1>
+  <p class="meta">Lingrain — 시행일: 2026년 6월 12일</p>
+
+  <p>
+    성준경 (이하 "개발자")는 모바일 애플리케이션 Lingrain(이하 "앱") 이용자의
+    개인정보를 중요하게 생각하며, 「개인정보 보호법」 등 관련 법령을 준수합니다.
+    본 방침은 앱이 어떤 정보를 어떻게 처리하는지 설명합니다.
+  </p>
+
+  <h2>1. 기본 원칙 — 데이터는 기기 안에 저장됩니다</h2>
+  <p>
+    앱은 회원가입이나 계정 없이 동작합니다. 이용자가 만든 학습 노트, 카드, 복습 기록,
+    설정값은 모두 <strong>이용자의 기기 내부 데이터베이스</strong>에 저장되며,
+    개발자의 서버로 전송·보관되지 않습니다.
+  </p>
+
+  <h2>2. 처리하는 정보</h2>
+  <table>
+    <tr><th>구분</th><th>항목</th><th>목적</th><th>저장 위치</th></tr>
+    <tr>
+      <td>학습 데이터</td>
+      <td>노트·카드 내용, 복습 기록, 학습 통계</td>
+      <td>학습 카드 생성 및 간격 반복 복습 제공</td>
+      <td>기기 내부</td>
+    </tr>
+    <tr>
+      <td>이용자가 입력하는 자료</td>
+      <td>텍스트, 사진, 녹음 파일</td>
+      <td>AI 기반 학습 카드 생성 (OpenAI API로 전송하여 처리)</td>
+      <td>기기 내부 (전송분은 아래 3항 참조)</td>
+    </tr>
+    <tr>
+      <td>API 키</td>
+      <td>이용자가 직접 입력한 OpenAI API 키</td>
+      <td>이용자 본인의 OpenAI 계정으로 AI 기능 호출</td>
+      <td>기기 보안 저장소(iOS Keychain 등)</td>
+    </tr>
+  </table>
+  <p class="note">
+    앱은 광고 식별자, 위치 정보, 연락처 등을 수집하지 않으며, 별도의 분석(애널리틱스)·광고
+    SDK를 사용하지 않습니다.
+  </p>
+
+  <h2>3. 외부 서비스로의 전송 (처리 위탁 및 국외 이전)</h2>
+  <p>AI 기능 제공을 위해 아래 정보가 외부 서비스로 전송됩니다.</p>
+  <table>
+    <tr><th>받는 자</th><th>전송 항목</th><th>목적</th><th>보유·이용 기간</th></tr>
+    <tr>
+      <td>OpenAI, L.L.C. (미국)<br /><a href="https://openai.com/policies/privacy-policy">개인정보처리방침</a></td>
+      <td>이용자가 카드 생성을 위해 입력한 텍스트·사진·녹음, 음성 합성(TTS) 대상 텍스트</td>
+      <td>학습 카드 생성, 음성 합성, 음성 전사</td>
+      <td>OpenAI API 정책에 따름 — API로 전송된 데이터는 모델 학습에 사용되지 않으며 남용 모니터링 목적으로 최대 30일 보관 후 삭제됩니다</td>
+    </tr>
+    <tr>
+      <td>Apple Inc.</td>
+      <td>음성 인식 사용 시 음성 데이터 (기기 내장 음성 인식 기능)</td>
+      <td>말하기 연습의 음성 인식</td>
+      <td>Apple 개인정보 정책에 따름</td>
+    </tr>
+  </table>
+  <p>
+    무료 이용 시 OpenAI API 호출은 <strong>이용자 본인의 API 키</strong>로 이용자 기기에서
+    OpenAI로 직접 이루어지며, 개발자는 그 내용에 접근할 수 없습니다.
+  </p>
+
+  <h2>4. 유료 구독 이용 시 추가 처리 항목</h2>
+  <p>유료 구독(Pro)을 이용하는 경우에 한해 아래 항목이 추가로 처리됩니다.</p>
+  <table>
+    <tr><th>받는 자</th><th>항목</th><th>목적</th></tr>
+    <tr>
+      <td>Apple Inc. (App Store)</td>
+      <td>결제 정보 (개발자는 카드번호 등 결제 수단 정보에 접근할 수 없음)</td>
+      <td>구독 결제 처리</td>
+    </tr>
+    <tr>
+      <td>RevenueCat, Inc. (미국)<br /><a href="https://www.revenuecat.com/privacy">개인정보처리방침</a></td>
+      <td>익명 기기 식별자, 구독 상태</td>
+      <td>구독 유효성 확인 및 관리</td>
+    </tr>
+    <tr>
+      <td>개발자 운영 중계 서버 (Supabase 기반)</td>
+      <td>AI 기능 요청 내용(텍스트·사진·녹음), 익명 식별자</td>
+      <td>구독자의 AI 기능 요청을 OpenAI로 중계 (요청 내용은 중계 목적 외 저장하지 않음)</td>
+    </tr>
+  </table>
+
+  <h2>5. 보유 기간 및 파기</h2>
+  <ul>
+    <li>기기 내 저장 데이터: 이용자가 앱에서 직접 삭제하거나 앱을 삭제하면 즉시 파기됩니다.</li>
+    <li>외부 서비스 전송분: 각 서비스의 정책에 따르며, 위 3·4항의 기간을 초과하여 보관되지 않습니다.</li>
+  </ul>
+
+  <h2>6. 이용자의 권리</h2>
+  <p>
+    모든 학습 데이터는 이용자 기기에 있으므로, 이용자는 앱 내에서 언제든 자신의 데이터를
+    열람·수정·삭제할 수 있습니다. 외부 서비스로 전송된 정보에 관한 문의는 아래 연락처 또는
+    각 서비스의 개인정보처리방침을 통해 할 수 있습니다.
+  </p>
+
+  <h2>7. 아동의 개인정보</h2>
+  <p>
+    앱은 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지
+    않습니다.
+  </p>
+
+  <h2>8. 문의처</h2>
+  <p>
+    개인정보 관련 문의: <a href="mailto:jk@fightpain.co.kr">jk@fightpain.co.kr</a>
+  </p>
+
+  <h2>9. 방침의 변경</h2>
+  <p>
+    본 방침이 변경되는 경우 시행일 7일 전(이용자에게 불리한 변경은 30일 전)에 본 페이지를
+    통해 공지합니다.
+  </p>
+</main>
+</body>
+</html>
